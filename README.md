@@ -1,21 +1,19 @@
-# Uppgift X - Beskrivande titel
+# Uppgift 5 - Grundläggande förståelse för dokumentationen
 
 ## <a name='Syfte'></a>Syfte
 
-Vad denna uppgift lär ut.
+Syftet med denna uppgift är att utveckla förmågan att självständigt navigera i
+"The Python Language Reference" och "The Python Standard Library" för att förstå
+Pythons syntax och utnyttja dess standardbibliotek.
 
 <!-- vscode-markdown-toc -->
 
 - [Syfte](#Syfte)
 - [Förberedelser](#Frberedelser)
 - [Beskrivning](#Beskrivning)
-  - [Del 1](#Del1)
-  - [Del 2](#Del2)
-- [Beskrivning](#Beskrivning-1)
-  - [Detaljer](#Detaljer)
-    - [Skapa en funktion](#Skapaenfunktion)
-    - [Tips](#Tips)
-    - [Exempel](#Exempel)
+  - [Language Reference](#LanguageReference)
+    - [Viktig avgränsning gällande BNF](#ViktigavgrnsninggllandeBNF)
+  - [Standard Library](#StandardLibrary)
   - [Inlämningsinstruktioner](#Inlmningsinstruktioner)
 - [Anteckningar](#Anteckningar)
 
@@ -27,60 +25,88 @@ Vad denna uppgift lär ut.
 
 ## <a name='Frberedelser'></a>Förberedelser
 
-- Nödvändiga förberedelsesteg.
+Läs och förstå dokumentet [Guide till Pythons
+dokumentation](https://docs.google.com/document/d/1o9vcKHdu-XLkrc2o3fG_q3Nsip4gklomVY0_HBss5Ig/edit).
+Det introducerar läsaren till Pythons dokumentation och förklarar hur
+Backus-Naur Form (BNF) fungerar, vilket är nödvändigt för att navigera och tolka
+dokumentationen effektivt.
 
 ## <a name='Beskrivning'></a>Beskrivning
 
 Denna uppgift fokuserar på att fördjupa förståelsen för de två viktigaste
-delarna av Pythons dokumentation.
+delarna av Pythons dokumentation: [The Python Language
+Reference](https://docs.python.org/3/reference/index.html) och [The Python
+Standard Library](https://docs.python.org/3/library/index.html). Att kunna
+använda dessa delar är avgörande för att kunna utnyttja Pythons fulla potential
+i programmeringsprojekt.
 
-### <a name='Del1'></a>Del 1
+### <a name='LanguageReference'></a>Language Reference
 
-1. **If-satser**:
+1. **If-satser:**
 
-Beskriv detaljerat...
+   Beskriv detaljerat användningen av `if`-satser i Python, en viktig mekanism
+   för villkorsstyrd exekvering. Presentera `if`-satsers BNF-notation och
+   förklara dess struktur och funktion. Komplettera med kodexempel för att
+   illustrera hur `if`-satser kan påverka programflödet genom att reagera på
+   olika villkor.
 
-### <a name='Del2'></a>Del 2
+2. **While-loopar:**
 
-2. **while-loopar**:
+   Utforska användningen av `while`-loopar för att upprepa kodblock baserat på
+   ett specifikt villkor. Presentera `while`-looparnas BNF-notation och förklara
+   hur den beskriver loopens mekanik. Använd kodexempel för att visa
+   `while`-loopar i praktiken.
 
-Beskriv detaljerat...
+3. **For-loopar:**
 
-## <a name='Beskrivning-1'></a>Beskrivning
+   Analysera `for`-loopar som en metod för iteration över sekvenser. Presentera
+   `for`-looparnas BNF-notation och diskutera hur den återspeglar deras struktur
+   och användningsområden. Ge exempel på kod som visar `for`-loopar i
+   användning, och jämför dem med `while`-loopar för att framhäva deras unika
+   fördelar.
 
-Skriv en funktion med namnet `calculate_area` som beräknar arean av en
-rektangel.
+#### <a name='ViktigavgrnsninggllandeBNF'></a>Viktig avgränsning gällande BNF
 
-### <a name='Detaljer'></a>Detaljer
+När BNF-notationen hänvisar till andra delar av dokumentationen, är det viktigt
+att hålla förklaringen fokuserad och relevant. För "icke terminanter" i BNF som
+länkar till andra dokumentationsdelar, som i exemplet nedan, ge en översiktlig
+förklaring med några exempel istället för att utforska hela Python-språket:
 
-#### <a name='Skapaenfunktion'></a>Skapa en funktion
+```
+if_stmt ::= "if" assignment_expression ":" suite
+("elif" assignment_expression ":" suite)*
+["else" ":" suite]
+```
 
-- **Funktionsignatur:** `def calculate_area(length: float, width: float) ->
-float:`
-- **Vad den ska göra:** Funktionen tar två argument, `length` och `width`, och
-  returnerar rektangelns area.
-- **Vad den ska skriva ut:** Funktionen ska skriva ut "Rektangelns area är: X"
-  innan den returnerar, där X är den beräknade arean.
-- **Vad den ska returnera:** Funktionen ska returnera den beräknade arean som
-  ett flyttal.
+I detta fall, förklara kortfattat `assignment_expression` och `suite` med ett
+par konkreta exempel, utan att dyka djupt in i varje aspekt.
 
-#### <a name='Tips'></a>Tips
+### <a name='StandardLibrary'></a>Standard Library
 
-- Kom ihåg, arean av en rektangel beräknas som `längd * bredd`.
-- Se till att din funktion skriver ut det krävda meddelandet innan den
-  returnerar arean.
+4. **Strängmetoder**:
 
-#### <a name='Exempel'></a>Exempel
+Analysera fyra strängmetoder (hitta typen `str`) i Python, till exempel
+`.capitalize()`. För varje metod, inkludera ett exempel som demonstrerar dess
+användning och beskriv ett specifikt scenario där metoden är användbar.
 
-1. **Anrop:** `calculate_area(5, 10)`
-   - **Förväntad utskrift:** "Rektangelns area är: 50"
-   - **Förväntat returvärde:** 50.0
-2. **Anrop:** `calculate_area(3.5, 2)`
-   - **Förväntad utskrift:** "Rektangelns area är: 7"
-   - **Förväntat returvärde:** 7.0
-3. **Anrop:** `calculate_area(7, 8)`
-   - **Förväntad utskrift:** "Rektangelns area är: 56"
-   - **Förväntat returvärde:** 56.0
+5. **Sekvenstyper och deras operationer**:
+
+Fokusera på en vald sekvenstyp i Python, exempelvis `list`, `tuple`, eller
+`range`. Använd kodexempel för att demonstrera hur man skapar en instans av
+denna typ och genomför grundläggande operationer såsom att lägga till, ändra och
+ta bort element, eller förklara varför vissa operationer inte är möjliga.
+
+6. **Ordböcker**:
+
+Beskriv ordböcker (`dict`) i Python, inklusive skapande, tillägg av
+nyckel-värdepar, elementåtkomst och manipulation. Visa med kodexempel hur man
+skapar en ordbok, lägger till och ändrar innehåll, samt itererar över den med en
+loop.
+
+7. **Inbyggda funktioner**:
+
+Välj fyra **inbyggda funktioner** (som exempelvis `len()` och `print()`) i
+Python och beskriv hur de används med text och kodexempel.
 
 ### <a name='Inlmningsinstruktioner'></a>Inlämningsinstruktioner
 
@@ -93,14 +119,10 @@ För att lämna in din uppgift, vänligen följ dessa steg:
      läser denna text. Det är i detta repository du kommer att hitta `README.md`
      med ytterligare instruktioner.
 
-2. **Modifiera `uppgift.py`:**
+2. **Modifiera `uppgift.md`:**
 
-   - Din lösning på uppgiften ska skrivas i `uppgift.py`. Det finns specifika
-     instruktioner i `uppgift.py` om var du ska placera din källkod.
-
-<!-- 2. **Modifiera `uppgift.md`:**
-
-   - Din lösning på uppgiften ska skrivas i `uppgift.md`. Det finns en struktur att utöka med dina lösningar i `uppgift.md`. -->
+   - Din lösning på uppgiften ska skrivas i `uppgift.md`. Det finns en struktur
+     att utöka med dina lösningar i `uppgift.md`.
 
 3. **Lämna in med Git:**
 
@@ -117,17 +139,14 @@ För att lämna in din uppgift, vänligen följ dessa steg:
 5. **Feedback och granskning från utbildaren:**
 
    - Om dina tester passerar med en grön bock, kan du invänta feedback från din
-     utbildare. Utbildaren kan antingen sätta "Request Changes" om ytterligare
+     utbildare. Utbildaren kan antingen sätta "request changes" om ytterligare
      förändringar behövs, eller "approve" om uppgiften är godkänd som den är.
      Det är viktigt att du inväntar någon av dessa innan du väljer Merge.
-   - Vid "Request Changes" är det viktigt att noggrant granska feedbacken och
-     göra de nödvändiga justeringarna baserat på utbildarens anvisningar för att
-     säkerställa att din uppgift uppfyller alla krav.
    - Efter att utbildaren har gjort "Approve" på din inlämning, får du göra en
      "Merge" av din "Feedback"-pull request, men inte förrän ett godkännande har
      erhållits.
 
-6. **Initiera diskussioner i "Feedback"-pull requesten:**
+6. **Initiera diskussioner i pull requesten:**
 
    - Som student är du uppmuntrad att aktivt delta i processen genom att
      initiera diskussioner i din "Feedback"-pull request. Detta är en viktig del
