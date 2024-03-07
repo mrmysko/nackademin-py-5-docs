@@ -28,10 +28,10 @@ If, while och for är alla typer av "compound statements". De har en header som 
 
    <pre>
    user_input = input() # Ja
-   
+
    if user_input == "Ja":
    user_input = "Nej"
-   
+
    print(user_input) # Nej
    </pre>
 
@@ -104,25 +104,114 @@ If, while och for är alla typer av "compound statements". De har en header som 
 4. **Strängmetoder:**
 
    - **Svar:**
-     .upper()
-     .lower()
-     Kan användas för att normalisera användar-input så att t.ex. ett match case träffar både 'A' och 'a'.
 
-     .strip()
-     Tar bort whitespace och grejer i början/slutet på strängar.
+   .upper() / .lower()
+
+   Kan användas för att normalisera användar-input så att t.ex. ett match case träffar både 'A' och 'a'.
+   <pre>
+   name = input("What's your name?: ").upper() # John
+   print(name) # JOHN
+   </pre>
+
+   \<var>.join()
+
+   Gör om en "iterable" till en enhetlig sträng, med \<var> som mellantecken.
+   <pre>
+   some_list = ["1", "2", "3", "4"]
+   joined_string = ".".join(some_list)
+   print(joined_string) # "1.2.3.4"
+   </pre>
+
+   .capitalize()
+
+   Gör första bokstaven till stor i en sträng.
+
+   <pre>
+   name = input("What's your name?: ").lower() # John
+   print(name.capitalize()) # John
+   </pre>
+
+   Om man har konverterat ett namn till lowercase för att matcha det om någon skriver sitt namn som jOhN, så kan man skriva det med stor bokstav med .capitalize().
+
+   Tydligen finns det en .casefold() som är bättre på att göra om fler bokstäver till lowercase än .lower().
 
 5. **Sekvenstyper och deras operationer:**
 
    - **Svar:**
 
+   Tuple: immutable ordnad sekvens av element.
+
+   Man kan skapa en tom tuple med tuple(\<iterable>), eller \<variable> = (). För att skapa en tuple med ett element måste man lägga till ett komma efter elementet var2 = "a",
+
+   Det viktiga för att skapa en tuple är komma-tecknen, inte paranteserna. variable = a, b, c blir en tuple (a, b, c). Men det skrivs oftast var = (a, b, c) för läsbarhet.
+
+   Man kan bara lägga till andra tuple-objekt till en tuple, så man måste konvertera dom med tuple(\<iterable>) innan dom kan läggas till som string concatenation med "+".
+
+   <pre>
+   some_tup = ("a", )
+
+   a_list = ["b", "c", "d"]
+
+   some_tup = some_tup + a_list # TypeError
+
+   some_tup = some_tup + tuple(a_list) # ("a", "b", "c", "d")
+   </pre>
+
 6. **Ordböcker:**
 
    - **Svar:**
 
+   En dict är en oordnad samling av key-value pairs. Den skapas antingen med \<variable> = dict(), eller \<variable> = {}
+
+   <pre>
+   some_dict = dict()
+   some_dict["value"] = "key" # Lägger till nyckeln "key" med värdet "value" i some_dict. Ser ut som {"key": "value"}
+
+   for key, value in some_dict.items():   # Itererar över en dict och packar upp nyckeln och värdet till key, value variablerna.
+   |   print(key, value)                  # Finns .keys() och .values() också om man bara vill ha den ena
+   </pre>
+
+   Man kan använda några liknande metoder för att ta bort en key ur en dict som ett värde i en lista. Men istället för att att peka på ett index så pekar man på en key.
+
+   <pre>
+   some_dict.pop("key")
+   del some_dict["key"]
+   some_dict.clear()    # Tar bort allt
+   </pre>
+
 7. **Inbyggda funktioner:**
 
    - **Svar:**
-     print()
-     int()
-     str()
-     enumerate()
+
+   round() - Avrundar en float till närmaste "n'th" decimal.
+
+   <pre>
+   45 / 23           # 1.9565217391304348
+   round(45 / 23, 2) # 1.96
+   round(45 / 23)    # 2 - Inget decimalantal angivet, avrundar till närmsta int istället.
+   </pre>
+
+   str() - Konverterar en variabel till en sträng.
+
+   <pre>
+   num = 666
+   beast = str(num) + ", the number of the beast."
+   print(beast) # "666, the number of the beast."
+   </pre>
+
+   enumerate() - Går igenom en iterable och skapar ett enumerate objekt med index och värdet.
+
+   <pre>
+   some_list = ["a", "b", "c", "d"]
+   for x, y in enumerate(some_list)
+    |  print(x, y) # 1 a
+    |              # 2 b
+    |              # 3 c etc.
+   </pre>
+
+   len() - Returnerar längden på en iterable som en int.
+
+   <pre>
+   some_list = ["apple", "pear", "banana", "orange"]
+   print(len(some_list)) # 4
+   </pre>
