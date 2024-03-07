@@ -14,7 +14,7 @@ If, while och for är alla typer av "compound statements". De har en header som 
                ["else" ":" suite]
    </pre>
 
-   Den börjar med nyckelordet "if", följt av ett uttryck, kolon och efter det en "suite".
+   Den börjar med nyckelordet "if", sen kommer ett uttryck, kolon och efter det en "suite".
 
    En suite definieras som:
 
@@ -22,14 +22,15 @@ If, while och for är alla typer av "compound statements". De har en header som 
    suite ::= stmt_list NEWLINE | NEWLINE INDENT statement+ DEDENT
    </pre>
 
-   Efter kolonet i if-satsen kommer en newline eller en indenterad newline följt av minst ett statement. Suiten avslutas med en "dedent", en indent åt andra hållet.
+   Det är en lista av statements som avslutas med en newline, eller en indenterad newline följt av minst ett statement. Suiten avslutas med en "dedent", en indent åt andra hållet.
+
    Optionally kan man följa if-satsen med ingen eller oändligt många elif-satser, och en optional else-sats. Båda som har sina egna keywords, kolon och följs av en suite. Det behövs inget nytt "assignment_expression".
 
    <pre>
    user_input = input() # Ja
    
    if user_input == "Ja":
-      user_input = "Nej"
+   user_input = "Nej"
    
    print(user_input) # Nej
    </pre>
@@ -51,9 +52,19 @@ If, while och for är alla typer av "compound statements". De har en header som 
    assignment_expression ::= [identifier ":="] expression
    </pre>
 
-   "An assignment expression (sometimes also called a “named expression” or “walrus”) assigns an expression to an identifier, while also returning the value of the expression."
+   En assignment_expression har en optional identifier av ett namn och en walrus operator ":=" (ny i python 3.8), sen kräver den ett uttryck.
 
-   En assignment_expression har en optional identifier
+   <pre>
+   while i < range(11):
+      print(i)
+      i += 1
+   </pre>
+
+   Printar alla nummer mellan 0 och 10.
+
+   Loopen kommer gå så länge uttrycket är True, men det är inte ett krav för ett expression att ha ett state där den blir False.
+
+   Så den här loopen jämför två nummer och får tillbaka ett boolskt värde, men "while i + 1:" skulle vara en syntaxtiskt lika korrekt loop.
 
 3. **For-loopar:**
 
@@ -69,11 +80,24 @@ If, while och for är alla typer av "compound statements". De har en header som 
    target_list ::= target ("," target)* [","]
    </pre>
 
-   keyword 'in' följt av en 'starred_list':
+   Det är ett target som kan följas av 0 till oändligt många komma-serparerade targets, och kan följas av ett komma.
+
+   Sen keyword 'in' följt av en 'starred_list':
 
    <pre>
    starred_list ::= starred_item ("," starred_item)* [","]
    </pre>
+
+   Som ser likadan ut som target_list, men med starred_items istället för targets.
+
+   Targets är assignment statements, och starred_items är assignment expressions.
+
+   <pre>
+   for key, value in dict.items():
+      print(key, value)
+   </pre>
+
+   Det är lättare att iterera över en sekvens som har ett bestämt antal element, eller flera element samtidigt med en for-loop istället för en while-loop.
 
 ## Standard Library
 
